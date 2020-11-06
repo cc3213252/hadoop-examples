@@ -53,3 +53,18 @@ bin/hadoop fs -cat /user/joe/wordcount/output/part-r-00000
 
 【ok】浏览器端无法删除目录  
 bin/hadoop fs -rm -r -skipTrash /user/joe/wordcount/output
+
+## wordcount2进阶功能
+
+1、通过setup修改Map/Reducer配置参数  
+2、按模式匹配统计  
+3、命令行参数判断  
+4、设置程序状态信息  
+
+## wordcount2测试步骤
+
+bin/hadoop com.sun.tools.javac.Main WordCount2.java    
+jar cf wc.jar WordCount2*.class  
+bin/hdfs dfs -mkdir /user/joe/wordcount/output2  
+bin/hadoop jar wc.jar WordCount2 /user/joe/wordcount/input /user/joe/wordcount/output2  
+bin/hadoop fs -cat /user/joe/wordcount/output2/part-r-00000    
